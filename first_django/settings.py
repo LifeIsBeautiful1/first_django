@@ -12,11 +12,11 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 
 import dj_database_url
 # Load environment variables
-load_dotenv()
+#load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -81,8 +81,10 @@ WSGI_APPLICATION = 'first_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-# Load DATABASE_URL from environment variables
-DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://postgres:sZQWWtLKZOpPzvhMLpZXawDTRjnuuddv@postgres.railway.internal:5432/railway')
+# Use DATABASE_URL if deployed on Railway, otherwise use DATABASE_PUBLIC_URL for local testing
+DATABASE_URL = 'postgresql://postgres:sZQWWtLKZOpPzvhMLpZXawDTRjnuuddv@gondola.proxy.rlwy.net:34874/railway'
+
+#os.environ.get('DATABASE_URL', os.environ.get('DATABASE_PUBLIC_URL'))
 
 # Configure Django to use DATABASE_URL
 DATABASES = {
