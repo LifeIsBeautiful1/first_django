@@ -79,17 +79,12 @@ WSGI_APPLICATION = 'first_django.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-# Use DATABASE_URL if deployed on Railway, otherwise use DATABASE_PUBLIC_URL for local testing
-DATABASE_URL = 'postgresql://postgres:sZQWWtLKZOpPzvhMLpZXawDTRjnuuddv@gondola.proxy.rlwy.net:34874/railway'
-
-#os.environ.get('DATABASE_URL', os.environ.get('DATABASE_PUBLIC_URL'))
 
 # Configure Django to use DATABASE_URL
 DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL)
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
