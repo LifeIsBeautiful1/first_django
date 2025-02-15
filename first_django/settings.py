@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-@s=jp!3!amm7!3t_oyk2wj=rsk^^d$%vz2s4m+g!=24(jv(xpa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.intelligends.com", "intelligends.com", "e3vkqa46.up.railway.app"]
+ALLOWED_HOSTS = ["www.intelligends.com", "intelligends.com", "e3vkqa46.up.railway.app", "https://first-django-wpyg.onrender.com"]
 
 
 
@@ -79,12 +79,11 @@ WSGI_APPLICATION = 'first_django.wsgi.application'
 
 
 # Database
-
+DATABASE_URL = os.getenv("DATABASE_URL")
 # Configure Django to use DATABASE_URL
 DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+    "default": dj_database_url.config(default=DATABASE_URL, conn_max_age=1800),
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
