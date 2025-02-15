@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-@s=jp!3!amm7!3t_oyk2wj=rsk^^d$%vz2s4m+g!=24(jv(xpa
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["www.intelligends.com", "intelligends.com", "e3vkqa46.up.railway.app", "https://first-django-wpyg.onrender.com"]
+ALLOWED_HOSTS = ["www.intelligends.com", "intelligends.com", "e3vkqa46.up.railway.app", "first-django-wpyg.onrender.com"]
 
 
 
