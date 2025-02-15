@@ -1,18 +1,28 @@
-# Ignore Python bytecode
+# .gitignore
+
+# Python
 __pycache__/
 *.py[cod]
-
-# Ignore virtual environment
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+.env
+venv/
+env/
 myenv/
 
+# Django
+media/
+staticfiles/
 
-# Ignore Django migrations
-*/migrations/
-
-# Ignore database
-*.sqlite3
-
-# Ignore IDE/editor files
+# IDE
 .vscode/
 .idea/
+
+# Logs
 *.log
+
+# Environment files
+.env
+.env.local

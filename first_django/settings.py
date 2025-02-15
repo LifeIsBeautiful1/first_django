@@ -13,8 +13,8 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 from dotenv import load_dotenv
-import dj_database_url
 
+import dj_database_url
 # Load environment variables
 load_dotenv()
 
@@ -81,10 +81,13 @@ WSGI_APPLICATION = 'first_django.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.config(default='postgresql://postgres:sZQWWtLKZOpPzvhMLpZXawDTRjnuuddv@postgres.railway.internal:5432/railway')
-}
+# Load DATABASE_URL from environment variables
+DATABASE_URL = os.environ.get('DATABASE_URL', 'postgresql://postgres:sZQWWtLKZOpPzvhMLpZXawDTRjnuuddv@postgres.railway.internal:5432/railway')
 
+# Configure Django to use DATABASE_URL
+DATABASES = {
+    'default': dj_database_url.config(default=DATABASE_URL)
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
